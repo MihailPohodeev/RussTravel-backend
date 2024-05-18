@@ -18,12 +18,12 @@ if config.config_file_name is not None:
 
 section = config.config_ini_section
 
-'''
+#postgres://russtravel:CTXnKRp6iwUOMmQf6k33dGta2qFQNNk7@dpg-coilasljm4es739qdp8g-a/russtravel
 config.set_section_option(section, "DB_USER", "russtravel")
-config.set_section_option(section, "DB_PASS", "russtravel")
+config.set_section_option(section, "DB_PASS", "CTXnKRp6iwUOMmQf6k33dGta2qFQNNk7")
 config.set_section_option(section, "DB_NAME", "russtravel")
-config.set_section_option(section, "DB_HOST", "localhost")
-'''
+config.set_section_option(section, "DB_HOST", "dpg-coilasljm4es739qdp8g-a")
+
 
 fileConfig(config.config_file_name)
 
