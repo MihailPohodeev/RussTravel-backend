@@ -57,7 +57,7 @@ async def get_museums_by_user(user_id: int):
     return museums_list
 
 async def delete_all_museum(user_id: int):
-    query = museums.delete().where(out_places.c.user_id == user_id)
+    query = museums.delete().where(museums.c.user_id == user_id)
     await database.execute(query)
     return {"code": 200}
 
@@ -80,7 +80,7 @@ async def get_park_by_user(user_id: int):
     return parks_list
 
 async def delete_all_park(user_id: int):
-    query = parks.delete().where(out_places.c.user_id == user_id)
+    query = parks.delete().where(parks.c.user_id == user_id)
     await database.execute(query)
     return {"code": 200}
 
