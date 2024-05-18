@@ -40,6 +40,10 @@ async def delete_museum(id: int, user_id: int):
 async def get_museums(user_id: int):
     return await users_utils.get_museums_by_user(user_id)
 
+@router.post("/clear-museums")
+async def clear_museums(user_id: int):
+    return await users_utils.delete_all_museum(user_id)
+
 @router.post("/add-park")
 async def add_park(label: users.LabelCreate):
     return await users_utils.add_park(label)
@@ -52,6 +56,10 @@ async def delete_park(id: int, user_id: int):
 async def get_parks(user_id: int):
     return await users_utils.get_park_by_user(user_id)
 
+@router.post("/clear-parks")
+async def clear_museums(user_id: int):
+    return await users_utils.delete_all_park(user_id)
+
 @router.post("/add-out")
 async def add_out(label: users.LabelCreate):
     return await users_utils.add_out(label)
@@ -63,3 +71,7 @@ async def delete_out(id: int, user_id: int):
 @router.get("/get-outs")
 async def get_outs(user_id: int):
     return await users_utils.get_out_by_user(user_id)
+
+@router.post("/clear-out")
+async def clear_museums(user_id: int):
+    return await users_utils.delete_all_out(user_id)
