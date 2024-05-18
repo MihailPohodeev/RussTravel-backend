@@ -1,8 +1,8 @@
-"""Added required tables
+"""Updated
 
-Revision ID: ccdbde923d38
+Revision ID: 15271b1f792e
 Revises: 
-Create Date: 2024-05-18 16:28:30.495385
+Create Date: 2024-05-18 19:01:36.122743
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'ccdbde923d38'
+revision: str = '15271b1f792e'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -29,22 +29,19 @@ def upgrade() -> None:
     )
     op.create_index(op.f('ix_users_email'), 'users', ['email'], unique=True)
     op.create_table('museums',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=100), nullable=True),
-    sa.Column('pictureURL', sa.String(length=100), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('id', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('title', sa.String(length=100), nullable=True)
     )
     op.create_table('out_places',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=100), nullable=True),
-    sa.Column('pictureURL', sa.String(length=100), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('id', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('title', sa.String(length=100), nullable=True)
     )
     op.create_table('parks',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=100), nullable=True),
-    sa.Column('pictureURL', sa.String(length=100), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('id', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('title', sa.String(length=100), nullable=True)
     )
     # ### end Alembic commands ###
 
