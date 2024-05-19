@@ -46,7 +46,7 @@ async def add_museum(lable: user_schema.LabelCreate):
     return {"code" : 200}
 
 async def delete_museum(id: int, user_id: int):
-    query = museums.delete().where(museums.c.id == id and museums.c.user_id == user_id)
+    query = museums.delete().where(((museums.c.id == id) & (museums.c.user_id == user_id)))
     await database.execute(query)
     return {"code": 200}
 
@@ -69,7 +69,7 @@ async def add_park(lable: user_schema.LabelCreate):
     return {"code" : 200}
 
 async def delete_park(id: int, user_id: int):
-    query = parks.delete().where(parks.c.id == id and parks.c.user_id == user_id)
+    query = parks.delete().where((parks.c.id == id) & (parks.c.user_id == user_id))
     await database.execute(query)
     return {"code": 200}
 
@@ -92,7 +92,7 @@ async def add_out(lable: user_schema.LabelCreate):
     return {"code" : 200}
 
 async def delete_out(id: int, user_id: int):
-    query = out_places.delete().where(out_places.c.id == id and out_places.c.user_id == user_id)
+    query = out_places.delete().where((out_places.c.id == id) & (out_places.c.user_id == user_id))
     await database.execute(query)
     return {"code": 200}
 
