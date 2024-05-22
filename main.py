@@ -26,4 +26,4 @@ async def read_root():
     query = (
         select(users_table)
     )
-    return await database.fetch_all(query)
+    return {"code" : 200}
